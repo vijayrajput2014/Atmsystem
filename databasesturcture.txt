@@ -1,0 +1,43 @@
+1.create user :-
+            SQL> connect;
+               Enter user-name: system/12345
+               Connected.
+            SQL> create user Atm6 identified by Atm5;
+
+               User created.
+
+           SQL> grant connect,resource to Atm5;
+
+              Grant succeeded.
+
+2. create cardlogin table :-
+            
+  SQL> create table cardlogin(cardno number(16) not null,pinno varchar2(4) not null,name varchar2(15));
+
+   Table created.
+
+   SQL> insert into cardlogin values(&cardno,&pinno,&name);
+      Enter value for cardno: 9009118581
+      Enter value for pinno: 'v321'
+      Enter value for name: 'vijay rajput'
+      old   1: insert into cardlogin values(&cardno,&pinno,&name)
+      new   1: insert into cardlogin values(9009118581,'v321','vijay rajput')
+
+     1 row created.
+
+   SQL> /
+     Enter value for cardno: 9009118582
+     Enter value for pinno: 'p123'
+     Enter value for name: 'pawan'
+     old   1: insert into cardlogin values(&cardno,&pinno,&name)
+     new   1: insert into cardlogin values(9009118582,'p123','pawan')
+
+    1 row created.
+   SQL> commit
+
+3. create balance table :-
+  
+  SQL> create table balance(deposit number(12),withdrawal number(12),depdatetime date,withdatetime date,cardno number(12));
+
+    Table created.
+           

@@ -1,0 +1,55 @@
+SQL*Plus: Release 11.2.0.2.0 Production on Sat Jan 5 12:51:14 2019
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect;
+   Enter user-name: Atm5/Atm5
+   Connected.
+SQL> desc cardlogin;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CARDNO                                    NOT NULL NUMBER(16)
+ PINNO                                     NOT NULL VARCHAR2(4)
+ NAME                                               VARCHAR2(15)
+
+SQL> select * from cardlogin;
+
+    CARDNO PINN NAME
+---------- ---- ---------------
+9009118581 v321 vijay rajput
+9009118582 p123 pawan
+
+SQL> desc balance;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPOSIT                                            NUMBER(12)
+ WITHDRAWAL                                         NUMBER(12)
+ DEPDATETIME                                        DATE
+ WITHDATETIME                                       DATE
+ CARDNO                                             NUMBER(16)
+
+SQL> set linesize 200;
+SQL> set pagesize 100;
+SQL> select * from balance;
+
+   DEPOSIT WITHDRAWAL DEPDATETI WITHDATET     CARDNO
+---------- ---------- --------- --------- ----------
+      4000          0 22-OCT-18           9009118582
+         0       1000           22-OCT-18 9009118582
+                    0 22-OCT-18           9009118581
+         0       1000           22-OCT-18 9009118581
+      2000          0 26-OCT-18           9009118581
+         0       1500           26-OCT-18 9009118581
+      5000          0 22-OCT-18           9009118581
+         0       1000           22-OCT-18 9009118581
+      2000          0 03-JAN-19           9009118581
+         0       2000           03-JAN-19 9009118581
+         0       4000           03-JAN-19 9009118581
+      2000          0 03-JAN-19           9009118581
+         0       1000           03-JAN-19 9009118581
+      2000          0 03-JAN-19           9009118582
+         0       2300           03-JAN-19 9009118582
+
+15 rows selected.
+
+SQL>
